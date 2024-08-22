@@ -10,7 +10,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@primevue/themes": "^4.0.4",
-    "core-js": "^3.8.3",
+    "core-js": "^3.38.1",
+    "primeicons": "^7.0.0",
+    "primevue": "^3.53.0",
     "swiper": "^11.1.10",
     "vue-router": "^4.4.3"
   },
@@ -24,9 +26,9 @@
     "@vue/compiler-sfc": "^3.4.38",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
-    "tailwindcss": "^2.0.4",
+    "tailwindcss": "^3.4.10",
     "vue": "^3.4.38",
-    "vue-loader": "^16.8.3",
+    "vue-loader": "^17.4.2",
     "webpack": "^5.94.0"
   },
   "eslintConfig": {
