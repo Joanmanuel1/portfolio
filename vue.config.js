@@ -1,4 +1,8 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+module.exports = {
+  lintOnSave: false, // Habilitar ESLint en tiempo de construcción
+  configureWebpack: {
+    stats: {
+      children: true,
+    },
+  },
+};

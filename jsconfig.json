@@ -1,19 +1,12 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "baseUrl": "./",
-    "moduleResolution": "node",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+  "dependencies": {
+    "vue": "^3.4.38"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.4.38",
+    "vue-loader": "^16.8.3",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^4.10.0",
+    "@vue/cli-service": "^5.0.8"
   }
 }
