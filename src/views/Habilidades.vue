@@ -3,9 +3,9 @@
     id="habilidades"
     class="education my-12 p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-500"
   >
-    <h2
-      class="text-3xl font-extrabold mb-6 border-b-4 border-blue-500 pb-3 text-gray-800"
-    >
+  <h2
+      class="text-3xl font-extrabold mb-6 pb-3 border-4 border-blue-500 rounded-lg bg-blue-50 text-center shadow-md text-blue-600"
+    style="margin-top: 0;">
       Habilidades
     </h2>
     <div class="skills-rotating p-6 bg-blue-50 shadow-lg rounded-lg">

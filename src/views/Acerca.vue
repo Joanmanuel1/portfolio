@@ -3,35 +3,28 @@
     id="acerca"
     class="personal-info my-12 p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-500"
   >
-    <div class="header flex items-center justify-between mb-6">
-      <h2
-        class="text-3xl font-extrabold mb-6 border-b-4 border-blue-500 pb-3 text-gray-800"
-      >
-        Acerca de mí
-      </h2>
-      <!-- Botón para contraer/expandir -->
-      <button
-        id="toggleButton"
-        class="flex items-center text-blue-600 font-semibold transition-transform transform hover:scale-110 focus:outline-none"
-      >
-        <span id="buttonText" class="mr-2">Contraer</span>
-        <svg
-          id="toggleIcon"
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 transition-transform transform rotate-0 duration-500"
-          fill="currentColor"
-          viewBox="0 0 20 20"
+  <div class="header flex items-center justify-between mb-6">
+      <!-- Contenedor para el h2 y el botón -->
+      <div class="header-content flex items-center w-full">
+        <!-- Contenedor para el h2 -->
+        <h2
+          class="text-3xl font-extrabold mb-6 pb-3 border-4 border-blue-500 rounded-lg bg-blue-50 shadow-md text-blue-600 flex-1 text-center relative"
+          style="margin-top: 0"
         >
-          <path
-            fill-rule="evenodd"
-            d="M10 3a1 1 0 00-.707 1.707l5 5a1 1 0 001.414-1.414l-5-5A1 1 0 0010 3zM10 17a1 1 0 00.707-1.707l-5-5a1 1 0 00-1.414 1.414l5 5A1 1 0 0010 17z"
-            clip-rule="evenodd"
+          Acerca de mí
+          <!-- Botón de alternar dentro del h2 -->
+          <Button
+            icon="pi pi-chevron-down"
+            @click="toggleContent"
+            class="p-button-text absolute right-2 top-1/2 transform -translate-y-1/2"
+            aria-label="Toggle Content"
           />
-        </svg>
-      </button>
+        </h2>
+      </div>
     </div>
     <div
       id="content"
+      :class="{ hidden: isContentHidden, block: !isContentHidden }"
       class="content flex transition-all duration-500 ease-in-out"
     >
       <!-- Contenedor de texto -->
@@ -89,10 +82,10 @@
               y
               <strong
                 ><a
-                  href="https://tailwindcss.com/"
+                  href="https://v3.primevue.org/"
                   target="_blank"
                   class="text-blue-600 hover:underline"
-                  >Tailwind CSS</a
+                  >Primevue3</a
                 ></strong
               >
               , demostrando mi habilidad en el desarrollo frontend moderno.
@@ -140,13 +133,13 @@
           </div>
         </div>
       </div>
-      <!-- Contenedor de foto -->
+      <!-- Contenedor de foto a la derecha del texto -->
       <div class="photo-container w-1/4 flex justify-center items-center">
         <img
           src="../assets/IMG-20240624-WA0098.jpg"
-          alt="Foto de presentación"
-          class="profile-photo w-3/4 h-auto object-cover rounded-full transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-          style="outline: 4px solid #3b82f6; outline-offset: 4px"
+          alt="Profile Photo"
+          class="profile-photo rounded-full border-4 border-blue-500 shadow-lg transition transform hover:scale-110"
+          style="width: 350px; height: 350px; background-image: contain"
         />
       </div>
     </div>
@@ -154,75 +147,74 @@
 </template>
 
 <style scoped>
-/* Estilo para el botón */
-#toggleButton {
-  background-color: #f0f4f8; /* Color de fondo moderno */
-  border: 2px solid #d1d5db; /* Borde sutil */
-  border-radius: 8px; /* Bordes redondeados */
-  padding: 8px 12px; /* Espaciado interno */
+.header {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  width: 100%;
+}
+
+.header-content {
   display: flex;
   align-items: center;
-  transition: background-color 0.3s, transform 0.3s;
+  width: 100%;
 }
 
-#toggleButton:hover {
-  background-color: #e2e8f0; /* Color de fondo al pasar el cursor */
-  transform: scale(1.1); /* Efecto de escalado */
+h2 {
+  width: auto; /* Deja que el h2 se ajuste al contenido */
+  position: relative; /* Para posicionar el botón dentro del h2 */
+  padding-right: 3rem; /* Espacio para el botón */
 }
 
-#toggleButton svg {
-  margin-left: 4px; /* Espacio entre el texto y el ícono */
-}
-
-#toggleIcon {
-  transition: transform 0.3s; /* Transición para rotación */
-}
-
-#toggleIcon.rotate-90 {
-  transform: rotate(90deg); /* Rotación del ícono */
-}
-.header {
-  text-align: center;
-}
-.profile-photo-container {
+.p-button-text {
+  background-color: #f0f4f8;
+  border: 2px solid #e0e7ff;
+  border-radius: 50%;
+  transition: background-color 0.3s, border-color 0.3s;
+  padding: 0.5rem;
+  font-size: 1.25rem; /* Tamaño del icono más grande */
   display: flex;
-  justify-content: center; /* Centra la imagen horizontalmente */
-  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-button-text:hover {
+  background-color: #e0e7ff;
+  border-color: #cbd5e1;
+}
+
+.p-button-text .pi {
+  font-size: 1.25rem; /* Tamaño del icono */
 }
 
 .profile-photo {
-  width: 300px; /* Ajusta el tamaño según sea necesario */
-  height: 300px;
-  border-radius: 50%; /* Redondeo para formato circular */
-  object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
-  border: 3px solid #ddd; /* Borde sutil para un acabado elegante */
+  width: 150px;
+  height: 150px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
 }
 </style>
 
-<script>
-export default {
-  name: "AcercaDeMi", // Nombre del componente, puede ser usado para referencia
 
-  mounted() {
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleButton = document.getElementById("toggleButton");
-      const content = document.getElementById("content");
-      const buttonText = document.getElementById("buttonText");
-      const toggleIcon = document.getElementById("toggleIcon");
+<script setup>
+import { ref } from "vue";
+import Button from "primevue/button";
 
-      toggleButton.addEventListener("click", () => {
-        if (content.classList.contains("hidden")) {
-          content.classList.remove("hidden");
-          buttonText.textContent = "Contraer";
-          toggleIcon.classList.remove("rotate-90");
-        } else {
-          content.classList.add("hidden");
-          buttonText.textContent = "Expandir";
-          toggleIcon.classList.add("rotate-90");
-        }
-      });
-    });
-  },
-};
+// Estado para manejar la visibilidad del contenido
+const isContentHidden = ref(false);
+
+// Función para alternar la visibilidad del contenido
+function toggleContent() {
+  isContentHidden.value = !isContentHidden.value;
+}
 </script>
