@@ -1,18 +1,15 @@
 <template>
   <section
     id="acerca"
-    class="personal-info my-12 p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-500"
+    class="personal-info my-12 p-4 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-500"
   >
-  <div class="header flex items-center justify-between mb-6">
-      <!-- Contenedor para el h2 y el botón -->
+    <div class="header flex items-center justify-between mb-6">
       <div class="header-content flex items-center w-full">
-        <!-- Contenedor para el h2 -->
         <h2
-          class="text-3xl font-extrabold mb-6 pb-3 border-4 border-blue-500 rounded-lg bg-blue-50 shadow-md text-blue-600 flex-1 text-center relative"
+          class="text-2xl sm:text-3xl font-extrabold mb-4 pb-3 border-4 border-blue-500 rounded-lg bg-blue-50 shadow-md text-blue-600 flex-1 text-center relative"
           style="margin-top: 0"
         >
           Acerca de mí
-          <!-- Botón de alternar dentro del h2 -->
           <Button
             icon="pi pi-chevron-down"
             @click="toggleContent"
@@ -25,30 +22,27 @@
     <div
       id="content"
       :class="{ hidden: isContentHidden, block: !isContentHidden }"
-      class="content flex transition-all duration-500 ease-in-out"
+      class="content flex flex-col md:flex-row transition-all duration-500 ease-in-out"
     >
       <!-- Contenedor de texto -->
-      <div class="text-container w-3/4 pr-8">
+      <div class="text-container w-full md:w-3/4 pr-0 md:pr-8 mb-8 md:mb-0">
         <div
-          class="education-item flex-1 p-6 bg-blue-50 shadow-lg rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+          class="education-item flex-1 p-4 sm:p-6 bg-blue-50 shadow-lg rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
         >
-          <!-- Parte superior que cubre el 100% del ancho -->
           <div class="mb-8">
-            <p class="text-lg mb-4 leading-relaxed">
+            <p class="text-base sm:text-lg mb-4 leading-relaxed">
               ¡Hola! 💻⚡ Soy
               <span class="font-bold text-blue-600">Joan Manuel Romero</span>,
               Analista de Sistemas y Licenciado en Gestión de Tecnología 🚀.
             </p>
-
-            <p class="text-lg mb-4 leading-relaxed">
+            <p class="text-base sm:text-lg mb-4 leading-relaxed">
               Soy un profesional apasionado por el aprendizaje continuo y el
               desarrollo de soluciones innovadoras para los desafíos que se
               presentan. Me considero una persona proactiva, con una fuerte
               orientación hacia la comunicación, la responsabilidad y la
               constancia en mi trabajo.
             </p>
-
-            <p class="text-lg mb-4 leading-relaxed">
+            <p class="text-base sm:text-lg mb-4 leading-relaxed">
               Actualmente, continúo formándome de manera autodidacta,
               enfocándome principalmente en desarrollo front-end. Puedes
               explorar mis proyectos en la sección de
@@ -60,7 +54,7 @@
               </a>
               💻.
             </p>
-            <p class="text-lg mb-4 leading-relaxed">
+            <p class="text-base sm:text-lg mb-4 leading-relaxed">
               Este portfolio fue desarrollado utilizando
               <strong
                 ><a
@@ -101,7 +95,7 @@
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10"
+                  class="h-8 w-8 sm:h-10 sm:w-10"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -120,7 +114,7 @@
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10"
+                  class="h-8 w-8 sm:h-10 sm:w-10"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -134,87 +128,29 @@
         </div>
       </div>
       <!-- Contenedor de foto a la derecha del texto -->
-      <div class="photo-container w-1/4 flex justify-center items-center">
+      <div class="photo-container w-full md:w-1/4 flex justify-center items-center">
         <img
           src="../assets/IMG-20240624-WA0098.jpg"
           alt="Profile Photo"
           class="profile-photo rounded-full border-4 border-blue-500 shadow-lg transition transform hover:scale-110"
-          style="width: 350px; height: 350px; background-image: contain"
+          style="width: 300px; height: 300px; background-image: contain"
         />
       </div>
     </div>
   </section>
 </template>
 
-<style scoped>
-.header {
-  display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  width: 100%;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-h2 {
-  width: auto; /* Deja que el h2 se ajuste al contenido */
-  position: relative; /* Para posicionar el botón dentro del h2 */
-  padding-right: 3rem; /* Espacio para el botón */
-}
-
-.p-button-text {
-  background-color: #f0f4f8;
-  border: 2px solid #e0e7ff;
-  border-radius: 50%;
-  transition: background-color 0.3s, border-color 0.3s;
-  padding: 0.5rem;
-  font-size: 1.25rem; /* Tamaño del icono más grande */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.p-button-text:hover {
-  background-color: #e0e7ff;
-  border-color: #cbd5e1;
-}
-
-.p-button-text .pi {
-  font-size: 1.25rem; /* Tamaño del icono */
-}
-
-.profile-photo {
-  width: 150px;
-  height: 150px;
-}
-
-.text-container {
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-}
-
-.photo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-}
-</style>
-
-
-<script setup>
-import { ref } from "vue";
-import Button from "primevue/button";
-
-// Estado para manejar la visibilidad del contenido
-const isContentHidden = ref(false);
-
-// Función para alternar la visibilidad del contenido
-function toggleContent() {
-  isContentHidden.value = !isContentHidden.value;
-}
+<script>
+export default {
+  data() {
+    return {
+      isContentHidden: false,
+    };
+  },
+  methods: {
+    toggleContent() {
+      this.isContentHidden = !this.isContentHidden;
+    },
+  },
+};
 </script>
