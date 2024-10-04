@@ -139,7 +139,7 @@
             es el pokemon.
           </p>
           <p class="text-lg mb-2">
-            <strong>Frontend: </strong>Bue con JavaScript.
+            <strong>Frontend: </strong>Vue 3 con JavaScript.
           </p>
 
           <p class="text-lg mb-2">
